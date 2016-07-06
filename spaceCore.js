@@ -169,7 +169,7 @@ var AlexaSkill = require('./AlexaSkill');
  * @see https://developer.mozilla.org/en-US/docs/Web/Java
  Script/Introduction_to_Object-Oriented_JavaScript#Inheritance
  */
-var Fact = function () {
+var SpaceCore = function () {
     AlexaSkill.call(this, APP_ID);
 };
 
@@ -178,14 +178,14 @@ Fact.prototype = Object.create(AlexaSkill.prototype);
 Fact.prototype.constructor = Fact;
 
 Fact.prototype.eventHandlers.onSessionStarted = function (sessionStartedRequest, session) {
-    //console.log("onSessionStarted requestId: " + sessionStartedRequest.requestId + ", sessionId: " + session.sessionId);
+    console.log("onSessionStarted requestId: " + sessionStartedRequest.requestId + ", sessionId: " + session.sessionId);
     // any initialization logic goes here
     var speechOutput = "Space space wanna go to space yes please space. Space space. Go to space.";
     response.tell(speechOutput);
 };
        
 Fact.prototype.eventHandlers.onLaunch = function (launchRequest, session, response) {
-    //console.log("onLaunch requestId: " + launchRequest.requestId + ", sessionId: " + session.sessionId);
+    console.log("onLaunch requestId: " + launchRequest.requestId + ", sessionId: " + session.sessionId);
     handleNewFactRequest(response);
 };
 
@@ -193,7 +193,7 @@ Fact.prototype.eventHandlers.onLaunch = function (launchRequest, session, respon
  * Overridden to show that a subclass can override this function to teardown session state.
  */
 Fact.prototype.eventHandlers.onSessionEnded = function (sessionEndedRequest, session) {
-    //console.log("onSessionEnded requestId: " + sessionEndedRequest.requestId + ", sessionId: " + session.sessionId);
+    console.log("onSessionEnded requestId: " + sessionEndedRequest.requestId + ", sessionId: " + session.sessionId);
     // any cleanup logic goes here
 };
 
